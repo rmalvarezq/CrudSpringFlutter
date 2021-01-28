@@ -1,10 +1,14 @@
 import 'package:crud_spring_flutter/utils/responsive.dart';
+import 'package:crud_spring_flutter/widget/avatar_button.dart';
 import 'package:crud_spring_flutter/widget/circle.dart';
-import 'package:crud_spring_flutter/widget/icon_container.dart';
+import 'package:crud_spring_flutter/widget/register_form.dart';
+import 'package:flutter/cupertino.dart';
+// import 'package:crud_spring_flutter/widget/icon_container.dart';
 // import 'package:crud_spring_flutter/widget/login_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
+  static const routeName = 'register';
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -41,28 +45,46 @@ class _RegisterPageState extends State<RegisterPage> {
                     )),
                 Positioned(
                     left: -(orangeSize * 0.1),
-                    top: -(orangeSize * 0.34),
+                    top: -(orangeSize * 0.29),
                     child: Circle(
                       size: orangeSize,
                       colors: [Colors.orange, Colors.orangeAccent],
                     )),
                 Positioned(
-                  top: size.width * 0.34,
+                  top: size.width * 0.18,
                   child: Column(children: <Widget>[
-                    IconContainer(
-                      size: responsive.wp(30),
-                    ),
-                    SizedBox(
-                      height: responsive.dp(1.6),
-                    ),
                     Text(
-                      'hello Again \n Welcome Back',
+                      'hello Againx \n Welcome Back',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: responsive.dp(2), fontFamily: 'RobotoMono'),
+                          fontSize: responsive.dp(2.5),
+                          fontFamily: 'RobotoMono',
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400),
                     ),
+                    SizedBox(
+                      height: responsive.dp(4),
+                    ),
+                    AvatarButton(
+                      imageSize: responsive.wp(25),
+                    )
                   ]),
                 ),
+                RegisterForm(),
+                Positioned(
+                    top: size.width * 0.03,
+                    left: size.width * 0.03,
+                    child: SafeArea(
+                      child: CupertinoButton(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black26,
+                        padding: EdgeInsets.all(10),
+                        child: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "login");
+                        },
+                      ),
+                    ))
                 // LoginForm()
               ],
             ),
